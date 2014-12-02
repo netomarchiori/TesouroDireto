@@ -1,0 +1,6 @@
+C:\Samuel Documentos\Programacao\TesouroDireto\AcessoBD\bin\Debug\AcessoBD.dll.config
+C:\Samuel Documentos\Programacao\TesouroDireto\AcessoBD\bin\Debug\AcessoBD.dll
+C:\Samuel Documentos\Programacao\TesouroDireto\AcessoBD\bin\Debug\AcessoBD.pdb
+C:\Samuel Documentos\Programacao\TesouroDireto\AcessoBD\obj\Debug\AcessoBD.csprojResolveAssemblyReference.cache
+C:\Samuel Documentos\Programacao\TesouroDireto\AcessoBD\obj\Debug\AcessoBD.dll
+C:\Samuel Documentos\Programacao\TesouroDireto\AcessoBD\obj\Debug\AcessoBD.pdb
