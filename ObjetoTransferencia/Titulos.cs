@@ -16,6 +16,7 @@ namespace ObjetoTransferencia
         public float TaxaVenda { get; set; }
         public double ValorVenda { get; set; }
         public int idTituloTipo { get; set; }
+        public DateTime AtualizadoEm { get;  set; }
 
         
         

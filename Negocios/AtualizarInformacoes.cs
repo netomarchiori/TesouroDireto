@@ -20,6 +20,7 @@ namespace Negocios
         private string[] vencimento = new string[LIMITETITULO];
         private string[] txcompravenda = new string[LIMITETITULO];
         private string[] vlcompravenda = new string[LIMITETITULO];
+        private string AtualizadoEm;
         int quantTitulos = 0;
         
         TitulosColecao titulosColecao = new TitulosColecao();
@@ -45,6 +46,7 @@ namespace Negocios
                  }
                 
             }
+
             catch(Exception ex)
             {
                 return "ERRO 001: " + ex.Message;
@@ -60,6 +62,7 @@ namespace Negocios
             informacoes = buscarInformacao();
             return informacoes;
         }
+
 
         public void buscarDados(string texto) 
         {
@@ -100,13 +103,16 @@ namespace Negocios
                 matchGeral = matchGeral.NextMatch();
                 cont++;
             }
+            // BUSCA DATA DE ATUALIZAÇÃO DOS TITULOS
+            matchGeral = Regex.Match(texto, Padroes.ATUALIZADOEM);
+            AtualizadoEm = matchGeral.Groups[0].ToString();
+           
+           
+            
 
+       }
 
-
-
-
-        }
-
+           
         public TitulosColecao montarColecaoTitulo(string texto)
         {
             buscarDados(texto);
@@ -129,7 +135,7 @@ namespace Negocios
                     catch (Exception ex) { titulos.TaxaVenda = 0; }
                     try { titulos.ValorVenda = Convert.ToDouble(vlcompravenda[aux + 1]); }
                     catch (Exception ex) { titulos.ValorVenda = 0; }
-                   
+                    titulos.AtualizadoEm = Convert.ToDateTime(AtualizadoEm);
                     titulosColecao.Add(titulos);
                     cont++;
                     aux +=2;
@@ -146,14 +152,15 @@ namespace Negocios
             
         }
 
-
-       
+                    
         public void salvarBD(TitulosColecao tituloColecao)
         {
             try
             {
                 SqlServer sqlServer = new SqlServer();
-                sqlServer.limparSqlParameterCollection();
+               sqlServer.limparSqlParameterCollection();
+               object a = sqlServer.excultarAcao(CommandType.StoredProcedure, "uspTitulosDeletar");
+
                 foreach (Titulos titulos in titulosColecao)
                 {
                     sqlServer.addSqlParameterCollection("@Descricao", titulos.Descricao);
@@ -170,7 +177,7 @@ namespace Negocios
                     { sqlServer.addSqlParameterCollection("@idTituloTipo", 3); }
                     else if (titulos.Descricao.IndexOf("NTNC") > -1)
                     { sqlServer.addSqlParameterCollection("@idTituloTipo", 4); }
-
+                    sqlServer.addSqlParameterCollection("@AtualizadoEm", titulos.AtualizadoEm);
                     string retorno = sqlServer.excultarAcao(CommandType.StoredProcedure, "uspTituloInserir").ToString();
                     sqlServer.limparSqlParameterCollection();
                 }

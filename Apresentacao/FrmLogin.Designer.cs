@@ -88,6 +88,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(203, 26);
             this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.Text = "ADMIN";
             // 
             // txtSenha
             // 
@@ -97,6 +98,7 @@
             this.txtSenha.PasswordChar = '$';
             this.txtSenha.Size = new System.Drawing.Size(203, 26);
             this.txtSenha.TabIndex = 5;
+            this.txtSenha.Text = "ADMIN";
             // 
             // pictureBox1
             // 

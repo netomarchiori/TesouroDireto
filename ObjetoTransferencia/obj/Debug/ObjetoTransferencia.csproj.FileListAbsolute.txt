@@ -1,5 +1,5 @@
 C:\Samuel Documentos\Programacao\TesouroDireto\ObjetoTransferencia\bin\Debug\ObjetoTransferencia.dll
 C:\Samuel Documentos\Programacao\TesouroDireto\ObjetoTransferencia\bin\Debug\ObjetoTransferencia.pdb
-C:\Samuel Documentos\Programacao\TesouroDireto\ObjetoTransferencia\obj\Debug\ObjetoTransferencia.csprojResolveAssemblyReference.cache
 C:\Samuel Documentos\Programacao\TesouroDireto\ObjetoTransferencia\obj\Debug\ObjetoTransferencia.dll
 C:\Samuel Documentos\Programacao\TesouroDireto\ObjetoTransferencia\obj\Debug\ObjetoTransferencia.pdb
+C:\Samuel Documentos\Programacao\TesouroDireto\ObjetoTransferencia\obj\Debug\ObjetoTransferencia.csprojResolveAssemblyReference.cache

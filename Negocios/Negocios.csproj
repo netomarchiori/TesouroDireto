@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="AtualizarInformacoes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simulacao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AcessoBD\AcessoBD.csproj">

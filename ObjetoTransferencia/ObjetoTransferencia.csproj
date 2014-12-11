@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="AgenteCustodia.cs" />
     <Compile Include="AgenteCustodiaColecao.cs" />
+    <Compile Include="DadosCalculos.cs" />
     <Compile Include="Padroes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Titulos.cs" />
