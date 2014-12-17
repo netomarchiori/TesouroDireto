@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocios;
 using ObjetoTransferencia;
+using System.IO;
 
 namespace Apresentacao
 {
@@ -21,10 +22,14 @@ namespace Apresentacao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AtualizarInformacoes atualizar = new AtualizarInformacoes();
-            string informacoes = atualizar.getInformacoes();
+           // AtualizarInformacoes atualizar = new AtualizarInformacoes();
+            AtualizarCustodiantes atualizarCustodiantes = new AtualizarCustodiantes();
+            atualizarCustodiantes.AtualizarAgentes();
+            
+            /*string informacoes = atualizar.getInformacoes();
             TitulosColecao titulosColecao = atualizar.montarColecaoTitulo(informacoes);
             atualizar.salvarBD(titulosColecao);
+            atualizarCustodiantes.AtualizarBD();*/
 
 
         }

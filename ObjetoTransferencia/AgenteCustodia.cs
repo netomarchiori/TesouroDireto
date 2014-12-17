@@ -11,9 +11,10 @@ namespace ObjetoTransferencia
         public int idAgenteCustodia { get; set; }
         public string InstituicaoFinan { get; set; }
         public string Integrado { get; set; }
-        public float TaxaAdmin { get; set; }
+        public string AplicacaoProgramada { get; set; }
+        public Double TaxaAdmin { get; set; }
         public string TaxaDescricao { get; set; }
         public string Repasse { get; set; }
 
-    }
+            }
 }

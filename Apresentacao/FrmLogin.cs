@@ -36,11 +36,10 @@ namespace Apresentacao
                     usuario.idUsuario = Convert.ToInt32(dataTable.Rows[0][0].ToString());
                     usuario.Nome = dataTable.Rows[0][1].ToString();
                     usuario.Email = dataTable.Rows[0][2].ToString();
-                    usuario.Telefone = dataTable.Rows[0][3].ToString();
-                    usuario.UsuarioNome = dataTable.Rows[0][4].ToString();
-                    usuario.Senha = dataTable.Rows[0][5].ToString();
-                    usuario.Nascimento = Convert.ToDateTime(dataTable.Rows[0][6].ToString());
-                    usuario.idAgenteCustodia = Convert.ToInt32(dataTable.Rows[0][7].ToString());
+                    usuario.UsuarioNome = dataTable.Rows[0][3].ToString();
+                    usuario.Senha = dataTable.Rows[0][4].ToString();
+                    usuario.Nascimento = Convert.ToDateTime(dataTable.Rows[0][5].ToString());
+                    usuario.idAgenteCustodia = Convert.ToInt32(dataTable.Rows[0][6].ToString());
                     
                     FrmPrincipal frmPrincipal = new FrmPrincipal(usuario);
                     frmPrincipal.Show();

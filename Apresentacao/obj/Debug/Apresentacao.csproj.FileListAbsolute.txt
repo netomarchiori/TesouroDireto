@@ -9,10 +9,10 @@ C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\bin\Debug\Negocios.p
 C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\bin\Debug\ObjetoTransferencia.pdb
 C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.csprojResolveAssemblyReference.cache
 C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.Form1.resources
+C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.FrmInicio.resources
 C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.FrmLogin.resources
 C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.FrmPrincipal.resources
 C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.Properties.Resources.resources
 C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.csproj.GenerateResource.Cache
 C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.exe
 C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.pdb
-C:\Samuel Documentos\Programacao\TesouroDireto\Apresentacao\obj\Debug\Apresentacao.FrmInicio.resources

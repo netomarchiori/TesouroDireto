@@ -14,6 +14,7 @@ namespace Negocios
 {
     public class AtualizarInformacoes
     {
+
         private string informacoes = "";
         const int LIMITETITULO = 50;
         private string[] desc = new string[LIMITETITULO];
@@ -60,6 +61,10 @@ namespace Negocios
         public string getInformacoes() 
         {
             informacoes = buscarInformacao();
+            Match matchGeral = Regex.Match(informacoes, Padroes.SUSPENSO);
+            if (matchGeral.Success)
+            { informacoes = "suspenso"; return informacoes; }
+           
             return informacoes;
         }
 
@@ -67,46 +72,48 @@ namespace Negocios
         public void buscarDados(string texto) 
         {
             int cont = 0;
-            //BUSCA DESCRIÇÃO DOS TITULOS
-            Match matchGeral = Regex.Match(texto, Padroes.TITULO_DESC);
-            while (matchGeral.Success && cont<LIMITETITULO)
-             {   
-                 desc[cont] = matchGeral.Groups[1].ToString();
-                 matchGeral = matchGeral.NextMatch();
-                 cont++;
-                 quantTitulos += 1;
-             }
-            // BUSCA VENCIMENTO DOS TITULOS
-            cont = 0;
-            matchGeral = Regex.Match(texto, Padroes.TITULO_VENCIMENTO);
-            while (matchGeral.Success && cont < LIMITETITULO)
-            {
-                vencimento[cont] = matchGeral.Groups[1].ToString();
-                matchGeral = matchGeral.NextMatch();
-                cont++;
-            }
-            // BUSCA TAXA DE COMPRA E VENDA DOS TITULOS
-            cont = 0;
-            matchGeral = Regex.Match(texto, Padroes.TITULO_COMPRA_VENDA_TAXA);
-            while (matchGeral.Success && cont < LIMITETITULO)
-            {
-                txcompravenda[cont] = matchGeral.Groups[1].ToString();
-                matchGeral = matchGeral.NextMatch();
-                cont++;
-            }
-            // BUSCA VALOR DE COMPRA E VENDA DOS TITULOS
-            cont = 0;
-            matchGeral = Regex.Match(texto, Padroes.TITULO_COMPRA_VENDA_VALOR);
-            while (matchGeral.Success && cont < LIMITETITULO)
-            {
-                vlcompravenda[cont] = matchGeral.Groups[1].ToString();
-                matchGeral = matchGeral.NextMatch();
-                cont++;
-            }
-            // BUSCA DATA DE ATUALIZAÇÃO DOS TITULOS
-            matchGeral = Regex.Match(texto, Padroes.ATUALIZADOEM);
-            AtualizadoEm = matchGeral.Groups[0].ToString();
+            
+                //BUSCA DESCRIÇÃO DOS TITULOS
+                Match matchGeral = Regex.Match(texto, Padroes.TITULO_DESC);
+                while (matchGeral.Success && cont < LIMITETITULO)
+                {
+                    desc[cont] = matchGeral.Groups[1].ToString();
+                    matchGeral = matchGeral.NextMatch();
+                    cont++;
+                    quantTitulos += 1;
+                }
+                // BUSCA VENCIMENTO DOS TITULOS
+                cont = 0;
+                matchGeral = Regex.Match(texto, Padroes.TITULO_VENCIMENTO);
+                while (matchGeral.Success && cont < LIMITETITULO)
+                {
+                    vencimento[cont] = matchGeral.Groups[1].ToString();
+                    matchGeral = matchGeral.NextMatch();
+                    cont++;
+                }
+                // BUSCA TAXA DE COMPRA E VENDA DOS TITULOS
+                cont = 0;
+                matchGeral = Regex.Match(texto, Padroes.TITULO_COMPRA_VENDA_TAXA);
+                while (matchGeral.Success && cont < LIMITETITULO)
+                {
+                    txcompravenda[cont] = matchGeral.Groups[1].ToString();
+                    matchGeral = matchGeral.NextMatch();
+                    cont++;
+                }
+                // BUSCA VALOR DE COMPRA E VENDA DOS TITULOS
+                cont = 0;
+                matchGeral = Regex.Match(texto, Padroes.TITULO_COMPRA_VENDA_VALOR);
+                while (matchGeral.Success && cont < LIMITETITULO)
+                {
+                    vlcompravenda[cont] = matchGeral.Groups[1].ToString();
+                    matchGeral = matchGeral.NextMatch();
+                    cont++;
+                }
+                // BUSCA DATA DE ATUALIZAÇÃO DOS TITULOS
+                matchGeral = Regex.Match(texto, Padroes.ATUALIZADOEM);
+                AtualizadoEm = matchGeral.Groups[0].ToString();
            
+            
            
             
 
@@ -116,40 +123,39 @@ namespace Negocios
         public TitulosColecao montarColecaoTitulo(string texto)
         {
             buscarDados(texto);
-            
-            int cont = 0,aux=0;
-            try
-            {
-                while (cont < quantTitulos && cont < LIMITETITULO)
+           
+                int cont = 0, aux = 0;
+                try
                 {
-                    Titulos titulos = new Titulos();
-                    titulos.Descricao = desc[cont];
-                    titulos.Vencimento = Convert.ToDateTime(vencimento[cont]);
-                   
-                    try { titulos.TaxaCompra = float.Parse(txcompravenda[aux]); }
-                    catch (Exception ex) { titulos.TaxaCompra = 0; }
-                    try { titulos.ValorCompra = Convert.ToDouble(vlcompravenda[aux]); }
-                    catch (Exception ex) { titulos.ValorCompra = 0; }
-                  
-                    try { titulos.TaxaVenda = float.Parse(txcompravenda[aux + 1]); }
-                    catch (Exception ex) { titulos.TaxaVenda = 0; }
-                    try { titulos.ValorVenda = Convert.ToDouble(vlcompravenda[aux + 1]); }
-                    catch (Exception ex) { titulos.ValorVenda = 0; }
-                    titulos.AtualizadoEm = Convert.ToDateTime(AtualizadoEm);
-                    titulosColecao.Add(titulos);
-                    cont++;
-                    aux +=2;
+                    while (cont < quantTitulos && cont < LIMITETITULO)
+                    {
+                        Titulos titulos = new Titulos();
+                        titulos.Descricao = desc[cont];
+                        titulos.Vencimento = Convert.ToDateTime(vencimento[cont]);
+
+                        try { titulos.TaxaCompra = float.Parse(txcompravenda[aux]); }
+                        catch (Exception) { titulos.TaxaCompra = 0; }
+                        try { titulos.ValorCompra = Convert.ToDouble(vlcompravenda[aux]); }
+                        catch (Exception) { titulos.ValorCompra = 0; }
+
+                        try { titulos.TaxaVenda = float.Parse(txcompravenda[aux + 1]); }
+                        catch (Exception) { titulos.TaxaVenda = 0; }
+                        try { titulos.ValorVenda = Convert.ToDouble(vlcompravenda[aux + 1]); }
+                        catch (Exception) { titulos.ValorVenda = 0; }
+                        titulos.AtualizadoEm = Convert.ToDateTime(AtualizadoEm);
+                        titulosColecao.Add(titulos);
+                        cont++;
+                        aux += 2;
+                    }
+                    return titulosColecao;
+
                 }
-                return titulosColecao;
-               
-            }
-            catch (Exception ex)
-            {
-               throw new Exception (ex.Message);
-            }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
 
-
-            
+                        
         }
 
                     
